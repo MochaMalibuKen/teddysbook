@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "directory": "Directorio",
+    "request_help": "Pedir Ayuda",
+    "are_you_a_pro": "¿Eres Profesional?",
+    "logout": "Cerrar Sesión"
+  },
+
+  "hero": {
+    "title": "Contrata Profesionales de Confianza",
+    "subtitle": "Teddy te conecta con expertos confiables para tu hogar.",
+    "cta_request": "Solicitar un Pro",
+    "cta_join": "Unirse como Pro"
+  },
+
+  "request_form": {
+    "title": "Solicitar un Profesional Local",
+    "description": "Cuéntanos lo que necesitas y Teddy te conectará con un profesional confiable.",
+    "name": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "phone": "Número de Teléfono",
+    "category": "Categoría",
+    "details": "Describe tu proyecto",
+    "budget": "Presupuesto",
+    "location": "Ubicación",
+    "urgency": "Urgencia",
+    "upload_photos": "Subir Fotos",
+    "submit": "Enviar Solicitud",
+
+    "urgency_options": {
+      "low": "Sin apuro",
+      "medium": "Pronto",
+      "high": "Urgente"
+    },
+
+    "success": {
+      "title": "¡Solicitud Enviada!",
+      "message": "Un profesional aprobado por Teddy te contactará pronto."
+    }
+  },
+
+  "pro_join": {
+    "title": "Únete a Teddy’s Book",
+    "subtitle": "Haz crecer tu negocio con clientes reales de tu zona—sin suscripciones ni contratos.",
+    "business_name": "Nombre del Negocio",
+    "full_name": "Tu Nombre",
+    "email": "Correo Electrónico",
+    "phone": "Número de Teléfono",
+    "category": "Categoría de Servicio",
+    "service_area": "Área de Servicio (Ciudad o Códigos ZIP)",
+    "description": "Describe tus servicios",
+    "license": "Número de Licencia (opcional)",
+    "years_experience": "Años de Experiencia (opcional)",
+    "insurance": "¿Tienes seguro de responsabilidad?",
+    "insurance_yes": "Sí",
+    "insurance_no": "No",
+    "upload_logo": "Subir Logo (opcional)",
+    "submit": "Enviar Solicitud",
+    "success": {
+      "title": "¡Solicitud Enviada!",
+      "message": "Tu perfil profesional está pendiente de aprobación."
+    }
+  },
+
+  "validation": {
+    "required": "Este campo es obligatorio.",
+    "email_invalid": "Introduce un correo válido.",
+    "phone_invalid": "Introduce un número válido."
+  }
+}

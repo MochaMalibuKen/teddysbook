@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "directory": "Directory",
+    "request_help": "Request Help",
+    "are_you_a_pro": "Are you a Pro?",
+    "logout": "Log Out"
+  },
+
+  "hero": {
+    "title": "Hire Trusted Local Pros",
+    "subtitle": "Teddy helps you find reliable home service experts fast.",
+    "cta_request": "Request a Pro",
+    "cta_join": "Join as a Pro"
+  },
+
+  "request_form": {
+    "title": "Request a Local Pro",
+    "description": "Tell us what you need and Teddy will match you with a trusted professional.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "category": "Category",
+    "details": "Describe your project",
+    "budget": "Budget",
+    "location": "Location",
+    "urgency": "Urgency",
+    "upload_photos": "Upload Photos",
+    "submit": "Submit Request",
+
+    "urgency_options": {
+      "low": "No rush",
+      "medium": "Soon",
+      "high": "Urgent"
+    },
+
+    "success": {
+      "title": "Request Sent!",
+      "message": "A Teddy-approved pro will reach out shortly."
+    }
+  },
+
+  "pro_join": {
+    "title": "Join Teddy’s Book",
+    "subtitle": "Grow your business with real local customers—no subscriptions, no contracts.",
+    "business_name": "Business Name",
+    "full_name": "Your Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "category": "Service Category",
+    "service_area": "Service Area (City or ZIP Codes)",
+    "description": "Describe your services",
+    "license": "Business License Number (optional)",
+    "years_experience": "Years in Business (optional)",
+    "insurance": "Do you have liability insurance?",
+    "insurance_yes": "Yes",
+    "insurance_no": "No",
+    "upload_logo": "Upload Business Logo (optional)",
+    "submit": "Apply to Join",
+    "success": {
+      "title": "Application Sent!",
+      "message": "Your pro profile is now pending approval."
+    }
+  },
+
+  "validation": {
+    "required": "This field is required.",
+    "email_invalid": "Enter a valid email address.",
+    "phone_invalid": "Enter a valid phone number."
+  }
+}

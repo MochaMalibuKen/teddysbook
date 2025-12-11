@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+@theme {
+  /* Teddy brand tokens – Tailwind v4 reads these instead of tailwind.config */
+  --color-teddy-blue: #2c8fbf;
+  --color-teddy-teal: #26a69a;
+  --color-teddy-neutral: #eceff1;
+  --color-teddy-green: #4caf50;
+  --color-teddy-dark: #0f172a;
+  --shadow-teddy-card: 0 10px 25px rgba(15, 23, 42, 0.12);
+  --radius-xl: 1rem;
+
+  /* Use the loaded Geist fonts */
+  --font-sans: var(--font-geist-sans), "Inter", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  color-scheme: dark;
+  --background: #0b1224;
+  --foreground: #e2e8f0;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.dark body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(44, 143, 191, 0.08), transparent 42%),
+    radial-gradient(circle at 82% 8%, rgba(38, 166, 154, 0.07), transparent 38%),
+    radial-gradient(90% 75% at 50% 100%, rgba(15, 23, 42, 0.6), transparent 75%);
+}
+@keyframes jigsawParallax {
+  0% {
+    background-position: 0px 0px;
+  }
+  50% {
+    background-position: 40px 80px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+.animate-jigsaw-parallax {
+  animation: jigsawParallax 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-jigsaw-parallax {
+    animation: none;
+  }
+}
+
+@keyframes jigsawParallax {
+  0% {
+    background-position: 0px 0px;
+  }
+  50% {
+    background-position: 20px 40px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+.animate-jigsaw-parallax {
+  animation: jigsawParallax 22s ease-in-out infinite;
 }
