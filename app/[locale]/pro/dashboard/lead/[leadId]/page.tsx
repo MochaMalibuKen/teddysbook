@@ -4,11 +4,11 @@ export default async function LocalizedLeadDetailsPage({
   params,
   searchParams, // included to satisfy Next PageProps shape
 }: {
-  params?: any;
-  searchParams?: any;
+  params?: Promise<{ leadId: string }>;
+  searchParams?: Promise<Record<string, unknown>>;
 }) {
-  const resolvedParams =
-    params && typeof params.then === "function" ? await params : params;
+  const resolvedParams: any = params ? await Promise.resolve(params) : { leadId: "" };
+  const resolvedSearchParams: any = searchParams ? await Promise.resolve(searchParams) : undefined;
 
-  return <LeadDetailsPage params={resolvedParams} searchParams={searchParams} />;
+  return <LeadDetailsPage params={resolvedParams} searchParams={resolvedSearchParams} />;
 }
