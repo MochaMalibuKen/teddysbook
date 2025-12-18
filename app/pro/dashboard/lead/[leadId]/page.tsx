@@ -37,7 +37,13 @@ interface Message {
   read_by_customer: boolean | null;
 }
 
-export default function LeadDetailsPage({ params }: { params: any }) {
+export default function LeadDetailsPage({
+  params,
+  searchParams, // optional for compatibility with Next PageProps shape
+}: {
+  params: any;
+  searchParams?: any;
+}) {
   const { leadId } = params || {};
 
   const [lead, setLead] = useState<Lead | null>(null);
