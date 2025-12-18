@@ -1,5 +1,13 @@
-export default async function LeadPage({ params }: { params: Promise<{ leadID: string }> }) {
-  const { leadID } = await params;
+export default async function LeadPage({
+  params,
+  searchParams, // included for Next PageProps compatibility
+}: {
+  params?: any;
+  searchParams?: any;
+}) {
+  const resolvedParams =
+    params && typeof params.then === "function" ? await params : params || {};
+  const { leadID } = resolvedParams as { leadID?: string };
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Lead Messages</h1>
