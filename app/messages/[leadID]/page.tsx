@@ -7,3 +7,5 @@ export default async function LeadPage({ params }: { params: Promise<{ leadID: s
     </div>
   );
 }
+// Mark dynamic to keep this route server-rendered and recognized as a module
+export const dynamic = "force-dynamic";
