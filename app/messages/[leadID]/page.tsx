@@ -1,17 +1,11 @@
 export default async function LeadPage({
   params,
-  searchParams, // included for Next PageProps compatibility
 }: {
-  params?: any;
-  searchParams?: any;
+  params?: Promise<LeadParams>;
+  searchParams?: Promise<Record<string, string | string[]>>;
 }) {
-  const isPromiseLike = (value: unknown): value is Promise<unknown> =>
-    (typeof value === "object" || typeof value === "function") &&
-    value !== null &&
-    "then" in value;
-
-  const resolvedParams = isPromiseLike(params) ? await params : params ?? {};
-  const { leadID } = resolvedParams as { leadID?: string };
+  const resolvedParams = params ? await Promise.resolve(params) : {};
+  const { leadID } = resolvedParams;
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Lead Messages</h1>
@@ -21,3 +15,7 @@ export default async function LeadPage({
 }
 // Mark dynamic to keep this route server-rendered and recognized as a module
 export const dynamic = "force-dynamic";
+
+type LeadParams = {
+  leadID?: string;
+};
