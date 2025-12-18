@@ -1,13 +1,12 @@
 import en from "./en.json";
 import es from "./es.json";
 
-type DictValue = string | Dict;
-type Dict = Record<string, DictValue>;
+type Dict = Record<string, any>;
 
 function getValue(obj: Dict, path: string): string {
   const segments = path.split(".");
 
-  let current: DictValue = obj;
+  let current: any = obj;
   for (const key of segments) {
     if (typeof current === "object" && current !== null && key in current) {
       current = current[key];

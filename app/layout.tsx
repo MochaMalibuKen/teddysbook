@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,10 +7,16 @@ import { getDictionary } from "@/il8n";
 import { LanguageProvider } from "@/app/providers";
 import LanguageToggle from "@/app/components/LanguageToggle";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
+const geistSans = localFont({
+  src: "../public/fonts/Geist-Variable.woff2",
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+
+const geistMono = localFont({
+  src: "../public/fonts/GeistMono-Variable.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,9 +29,10 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale?: string };
+  params: Promise<any>;
 }) {
-  const locale = params?.locale || "en";
+  const resolvedParams = (await params) ?? {};
+  const locale = resolvedParams.locale || "en";
   const dict = await getDictionary(locale as "en" | "es");
 
   return (
@@ -79,18 +86,18 @@ export default async function RootLayout({
 
                 <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-gray-700">
                   <Link href={`/${locale}/directory`} className="hover:text-teddy-blue">
-                    {dict["header.directory"]}
+                    {dict.nav.directory}
                   </Link>
 
                   <Link href={`/${locale}/request`} className="hover:text-teddy-blue">
-                    {dict["header.request"]}
+                    {dict.nav.request_help}
                   </Link>
 
                   <Link
                     href={`/${locale}/pro/join`}
                     className="rounded-full bg-teddy-blue px-4 py-2 text-white hover:bg-teddy-teal transition"
                   >
-                    {dict["header.pro"]}
+                    {dict.nav.are_you_a_pro}
                   </Link>
 
                   <LanguageToggle />

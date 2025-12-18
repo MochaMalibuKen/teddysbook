@@ -37,12 +37,8 @@ interface Message {
   read_by_customer: boolean | null;
 }
 
-export default function LeadDetailsPage({
-  params,
-}: {
-  params: { leadId: string };
-}) {
-  const { leadId } = params;
+export default function LeadDetailsPage({ params }: { params: any }) {
+  const { leadId } = params || {};
 
   const [lead, setLead] = useState<Lead | null>(null);
   const [request, setRequest] = useState<CustomerRequest | null>(null);
