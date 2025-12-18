@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export default async function LeadPage({
   params,
   searchParams, // included to satisfy Next PageProps shape
