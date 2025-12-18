@@ -5,8 +5,12 @@ export default async function LeadPage({
   params?: any;
   searchParams?: any;
 }) {
-  const resolvedParams =
-    params && typeof params.then === "function" ? await params : params || {};
+  const isPromiseLike = (value: unknown): value is Promise<unknown> =>
+    (typeof value === "object" || typeof value === "function") &&
+    value !== null &&
+    "then" in value;
+
+  const resolvedParams = isPromiseLike(params) ? await params : params ?? {};
   const { leadID } = resolvedParams as { leadID?: string };
   return (
     <div style={{ padding: "2rem" }}>
