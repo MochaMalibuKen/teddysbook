@@ -1,20 +1,11 @@
-export const dynamic = "force-dynamic";
-
 type LeadPageProps = {
-  params: {
+  params: Promise<{
     leadID: string;
-  };
-  searchParams?: Record<string, string | string[]>;
+  }>;
 };
 
-export default async function LeadPage({
-  params,
-  searchParams,
-}: LeadPageProps) {
-  // searchParams intentionally unused for now
-  void searchParams;
-
-  const { leadID } = params;
+export default async function LeadPage({ params }: LeadPageProps) {
+  const { leadID } = await params;
 
   return (
     <div style={{ padding: "2rem" }}>

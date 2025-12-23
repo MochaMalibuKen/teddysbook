@@ -1,7 +1,5 @@
-export default function LocaleLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import type { ReactNode } from "react";
+
+export default function LocaleLayout({ children }: { children: ReactNode }) {
   return children;
 }

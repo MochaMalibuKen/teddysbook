@@ -121,8 +121,7 @@ export default function ProDashboard() {
 
   useEffect(() => {
     if (pro && pro.status === "approved") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      loadLeads();
+      void loadLeads();
     }
   }, [pro]);
 

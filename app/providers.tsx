@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
+import type { ReactNode } from "react";
 
 type LanguageContextValue = {
   locale: string;
@@ -13,7 +14,7 @@ const LanguageContext = createContext<LanguageContextValue>({
 });
 
 type LanguageProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   defaultLocale?: string;
 };
 

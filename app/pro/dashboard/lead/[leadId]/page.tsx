@@ -1,26 +1,26 @@
 export const dynamic = "force-dynamic";
 
-type Lead = Record<string, unknown>;
-type Message = Record<string, unknown>;
+import type { Lead } from "@/lib/types";
 
-type LeadPageParams = {
-  leadId?: string;
+type Message = {
+  id: string;
+  leadId: string;
+  senderName?: string;
+  body: string;
+  createdAt: string;
 };
 
 type LeadPageProps = {
-  params: Promise<LeadPageParams> | LeadPageParams;
-  searchParams?: Promise<Record<string, string | string[]>> | Record<string, string | string[]>;
+  params: Promise<{
+    leadId: string;
+  }>;
 };
 
-export default async function LeadPage({
-  params,
-  searchParams,
-}: LeadPageProps) {
-  const resolvedParams = await params;
-  const resolvedSearchParams = searchParams ? await searchParams : undefined;
-  void resolvedSearchParams;
+export default async function LeadPage({ params }: LeadPageProps) {
+  const { leadId } = await params;
 
-  const { leadId } = resolvedParams;
+  const lead: Lead | null = null;
+  void lead;
 
   const messages: Message[] = [];
 

@@ -1,12 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { useParams } from "next/navigation";
 import { t } from "@/il8n/getTranslations";
 
 export default function ProJoinPage() {
   const params = useParams() as { locale: string };
   const locale = params?.locale || "en";
+  const translate = useCallback((key: string) => t(locale, key), [locale]);
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -26,10 +27,10 @@ export default function ProJoinPage() {
     return (
       <div className="mx-auto max-w-xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <h1 className="text-xl font-semibold text-gray-900 mb-2">
-          {t(locale, "pro_join.success.title")}
+          {translate("pro_join.success.title")}
         </h1>
         <p className="text-sm text-gray-700">
-          {t(locale, "pro_join.success.message")}
+          {translate("pro_join.success.message")}
         </p>
       </div>
     );
@@ -39,10 +40,10 @@ export default function ProJoinPage() {
     <div className="mx-auto max-w-xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm space-y-4">
       <div>
         <h1 className="text-xl font-semibold text-gray-900">
-          {t(locale, "pro_join.title")}
+          {translate("pro_join.title")}
         </h1>
         <p className="mt-1 text-sm text-gray-600">
-          {t(locale, "pro_join.subtitle")}
+          {translate("pro_join.subtitle")}
         </p>
       </div>
 
@@ -50,7 +51,7 @@ export default function ProJoinPage() {
         {/* Business Name */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.business_name")}
+            {translate("pro_join.business_name")}
           </label>
           <input
             type="text"
@@ -62,7 +63,7 @@ export default function ProJoinPage() {
         {/* Full Name */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.full_name")}
+            {translate("pro_join.full_name")}
           </label>
           <input
             type="text"
@@ -74,7 +75,7 @@ export default function ProJoinPage() {
         {/* Email */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.email")}
+            {translate("pro_join.email")}
           </label>
           <input
             type="email"
@@ -86,7 +87,7 @@ export default function ProJoinPage() {
         {/* Phone */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.phone")}
+            {translate("pro_join.phone")}
           </label>
           <input
             type="tel"
@@ -97,7 +98,7 @@ export default function ProJoinPage() {
         {/* Category */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.category")}
+            {translate("pro_join.category")}
           </label>
           <select
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teddy-blue focus:outline-none focus:ring-1 focus:ring-teddy-blue"
@@ -116,7 +117,7 @@ export default function ProJoinPage() {
         {/* Service Area */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.service_area")}
+            {translate("pro_join.service_area")}
           </label>
           <input
             type="text"
@@ -128,7 +129,7 @@ export default function ProJoinPage() {
         {/* Description */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.description")}
+            {translate("pro_join.description")}
           </label>
           <textarea
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teddy-blue focus:outline-none focus:ring-1 focus:ring-teddy-blue"
@@ -140,7 +141,7 @@ export default function ProJoinPage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="block text-sm font-medium text-gray-800">
-              {t(locale, "pro_join.license")}
+              {translate("pro_join.license")}
             </label>
             <input
               type="text"
@@ -150,7 +151,7 @@ export default function ProJoinPage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-800">
-              {t(locale, "pro_join.years_experience")}
+              {translate("pro_join.years_experience")}
             </label>
             <input
               type="number"
@@ -163,16 +164,16 @@ export default function ProJoinPage() {
         {/* Insurance */}
         <div>
           <span className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.insurance")}
+            {translate("pro_join.insurance")}
           </span>
           <div className="mt-1 flex items-center gap-4 text-sm text-gray-700">
             <label className="inline-flex items-center gap-1">
               <input type="radio" name="insurance" value="yes" className="h-4 w-4" />
-              <span>{t(locale, "pro_join.insurance_yes")}</span>
+              <span>{translate("pro_join.insurance_yes")}</span>
             </label>
             <label className="inline-flex items-center gap-1">
               <input type="radio" name="insurance" value="no" className="h-4 w-4" />
-              <span>{t(locale, "pro_join.insurance_no")}</span>
+              <span>{translate("pro_join.insurance_no")}</span>
             </label>
           </div>
         </div>
@@ -180,7 +181,7 @@ export default function ProJoinPage() {
         {/* Logo Upload (placeholder only) */}
         <div>
           <label className="block text-sm font-medium text-gray-800">
-            {t(locale, "pro_join.upload_logo")}
+            {translate("pro_join.upload_logo")}
           </label>
           <input type="file" className="mt-1 block w-full text-sm text-gray-700" />
         </div>
@@ -193,7 +194,7 @@ export default function ProJoinPage() {
         >
           {submitting
             ? "Sending..."
-            : t(locale, "pro_join.submit")}
+            : translate("pro_join.submit")}
         </button>
       </form>
     </div>
