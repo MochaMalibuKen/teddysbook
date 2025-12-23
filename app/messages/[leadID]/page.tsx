@@ -1,11 +1,11 @@
 type LeadPageProps = {
-  params: Promise<{
+  params: {
     leadID: string;
-  }>;
+  };
 };
 
-export default async function LeadPage({ params }: LeadPageProps) {
-  const { leadID } = await params;
+export default function LeadPage({ params }: LeadPageProps) {
+  const { leadID } = params;
 
   return (
     <div style={{ padding: "2rem" }}>
