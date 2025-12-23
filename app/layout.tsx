@@ -29,7 +29,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<any>;
+  params: Promise<unknown>;
 }) {
   const resolvedParams = (await params) ?? {};
   const locale = resolvedParams.locale || "en";

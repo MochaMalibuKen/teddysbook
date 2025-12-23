@@ -1,14 +1,27 @@
-import LeadDetailsPage from "../../../../pro/dashboard/lead/[leadId]/page";
+export const dynamic = "force-dynamic";
 
-export default async function LocalizedLeadDetailsPage({
+type LeadPageProps = {
+  params: {
+    locale: string;
+    leadId: string;
+  };
+  searchParams?: Record<string, string | string[]>;
+};
+
+export default async function LeadPage({
   params,
-  searchParams, // included to satisfy Next PageProps shape
-}: {
-  params?: Promise<any>;
-  searchParams?: Promise<any>;
-}) {
-  const resolvedParams = params ? await params : {};
-  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  searchParams,
+}: LeadPageProps) {
+  // intentionally unused for now
+  void searchParams;
 
-  return <LeadDetailsPage params={resolvedParams} searchParams={resolvedSearchParams} />;
+  const { leadId, locale } = params;
+
+  return (
+    <div style={{ padding: "2rem" }}>
+      <h1>Lead Dashboard</h1>
+      <p>Locale: {locale}</p>
+      <p>Lead ID: {leadId}</p>
+    </div>
+  );
 }

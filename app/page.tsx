@@ -78,7 +78,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       {/* Hero */}
-      <section className="rounded-3xl bg-gradient-to-br from-teddy-blue via-teddy-green to-teddy-teal p-1.5 shadow-teddy-card">
+      <section className="rounded-3xl bg-linear-to-br from-teddy-blue via-teddy-green to-teddy-teal p-1.5 shadow-teddy-card">
         <div className="rounded-3xl bg-white/95 px-6 py-8 backdrop-blur-sm dark:bg-slate-900/90">
           <div className="flex flex-col gap-8 md:flex-row md:items-center">
             {/* Hero text */}
@@ -225,11 +225,11 @@ export default function HomePage() {
             <Link
               key={cat.slug}
               href={`/request?category=${encodeURIComponent(cat.slug)}`}
-              className="group rounded-2xl bg-white p-4 shadow-teddy-card ring-1 ring-slate-200 transition hover:-translate-y-[2px] hover:ring-teddy-blue/70 dark:bg-slate-900 dark:ring-slate-700"
+              className="group rounded-2xl bg-white p-4 shadow-teddy-card ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:ring-teddy-blue/70 dark:bg-slate-900 dark:ring-slate-700"
             >
               <div className="flex items-center gap-4">
                 {/* Mascot left */}
-                <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-2xl bg-teddy-neutral/70 dark:bg-slate-800">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-teddy-neutral/70 dark:bg-slate-800">
                   <Image
                     src={cat.teddyImage}
                     alt={`${cat.name} Teddy`}
