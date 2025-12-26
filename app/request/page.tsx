@@ -41,6 +41,11 @@ export default function RequestPage() {
   useEffect(() => {
     async function loadCategories() {
       setLoadingCategories(true);
+      if (!supabase) {
+        setErrorMsg("Service is not configured. Please try again later.");
+        setLoadingCategories(false);
+        return;
+      }
       const { data, error } = await supabase
         .from("categories")
         .select("*")
@@ -80,6 +85,10 @@ export default function RequestPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg(null);
+    if (!supabase) {
+      setErrorMsg("Service is not configured. Please try again later.");
+      return;
+    }
 
     if (!categoryId) {
       setErrorMsg("Please choose a category so Teddy knows who to call.");

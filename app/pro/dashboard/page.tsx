@@ -50,6 +50,11 @@ export default function ProDashboard() {
   // -----------------------------------------------------
   useEffect(() => {
     async function loadPro() {
+      if (!supabase) {
+        setErrorMsg("Service unavailable. Please try again later.");
+        setLoading(false);
+        return;
+      }
       const { data: auth } = await supabase.auth.getUser();
       if (!auth.user) {
         router.push("/pro/join");
@@ -73,6 +78,11 @@ export default function ProDashboard() {
   // LOAD LEADS (ONLY IF APPROVED)
   // -----------------------------------------------------
   async function loadLeads() {
+    if (!supabase) {
+      setErrorMsg("Service unavailable. Please try again later.");
+      setLeadLoading(false);
+      return;
+    }
     setLeadLoading(true);
     setErrorMsg(null);
 
@@ -92,6 +102,9 @@ export default function ProDashboard() {
     const leadsWithDetails = await Promise.all(
       data.map(async (lead) => {
         let request: CustomerRequest | null = null;
+        if (!supabase) {
+          return { ...(lead as Lead), request, unreadMessages: 0 };
+        }
 
         const { data: reqData } = await supabase
           .from("customer_requests")

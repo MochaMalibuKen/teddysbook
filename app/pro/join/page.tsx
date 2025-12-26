@@ -125,6 +125,11 @@ export default function JoinPage() {
 
     try {
       // 1️⃣ Create a profile row (contact info + role)
+      if (!supabase) {
+        setErrorMsg("Service is not configured. Please try again later.");
+        setSubmitting(false);
+        return;
+      }
       const { data: profile, error: profileError } = await supabase
         .from("profiles")
         .insert([

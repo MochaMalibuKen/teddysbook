@@ -23,6 +23,10 @@ export default function ProOnboardingPage() {
   // Load user session + categories
   useEffect(() => {
     async function load() {
+      if (!supabase) {
+        router.push("/pro/join");
+        return;
+      }
       const { data: auth } = await supabase.auth.getUser();
       if (!auth.user) {
         router.push("/pro/join");
@@ -54,6 +58,10 @@ export default function ProOnboardingPage() {
   async function handleSubmit() {
     if (!user) {
       alert("You must be signed in first.");
+      return;
+    }
+    if (!supabase) {
+      alert("Service is not configured. Please try again later.");
       return;
     }
 
