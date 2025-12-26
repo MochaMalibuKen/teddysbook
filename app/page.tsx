@@ -97,11 +97,17 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/directory"
-                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900"
-              >
-                Browse directory
-              </Link>
-            </div>
+            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900"
+          >
+            Browse directory
+          </Link>
+          <Link
+            href="/pro/join"
+            className="rounded-full border border-teddy-blue px-4 py-2 text-sm font-semibold text-teddy-blue"
+          >
+            Are you a pro? Join Teddy
+          </Link>
+        </div>
             <p className="text-xs text-slate-500">
               No subscriptions for customers. Pros pay per lead.
             </p>
