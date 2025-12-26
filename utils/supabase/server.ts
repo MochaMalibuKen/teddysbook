@@ -1,17 +1,23 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey =
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY ??
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+function getSupabaseConfig() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey =
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-  throw new Error("Supabase environment variables are missing");
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error("Supabase environment variables are missing");
+  }
+
+  return { supabaseUrl, supabaseKey };
 }
 
-export const createClient = (cookieStore = cookies()) =>
-  createServerClient(supabaseUrl, supabaseKey, {
+export const createClient = (cookieStore = cookies()) => {
+  const { supabaseUrl, supabaseKey } = getSupabaseConfig();
+
+  return createServerClient(supabaseUrl, supabaseKey, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
@@ -27,3 +33,4 @@ export const createClient = (cookieStore = cookies()) =>
       },
     },
   });
+};
